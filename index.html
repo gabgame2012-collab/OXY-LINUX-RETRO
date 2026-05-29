@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OXY$ OS — Desempenho e Auditoria para Hardware 64-bit</title>
+    <style>
+        /* Paleta de Cores Inspirada no Linux Mint (Dark Mode) */
+        :root {
+            --bg-principal: #111111;
+            --bg-card: #1a1a1a;
+            --bg-nav: #151515;
+            --verde-mint: #87cf3e;
+            --verde-hover: #6fa832;
+            --texto-claro: #ffffff;
+            --texto-mutado: #aaaaaa;
+            --borda: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegação Superior (Estilo Mint) */
+        nav {
+            background-color: var(--bg-nav);
+            border-bottom: 1px solid var(--borda);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--verde-mint);
+            text-decoration: none;
+        }
+
+        /* Seção Principal (Hero) */
+        header {
+            max-width: 1200px;
+            margin: 140px auto 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        header h1 span {
+            color: var(--verde-mint);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--texto-mutado);
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--verde-mint);
+            color: var(--bg-principal);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--verde-hover);
+        }
+
+        .btn-secondary {
+            background-color: #252525;
+            color: var(--texto-claro);
+            border: 1px solid var(--borda);
+        }
+
+        .btn-secondary:hover {
+            background-color: #333333;
+        }
+
+        /* Container de Conteúdo */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        /* Grade de Recursos Técnicos */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda);
+            padding: 30px;
+            border-radius: 6px;
+        }
+
+        .card h3 {
+            color: var(--verde-mint);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--texto-mutado);
+            font-size: 0.95rem;
+        }
+
+        /* Seção de Comandos Básicos (Tabela Estilo Mint) */
+        .commands-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda);
+            padding: 40px;
+            border-radius: 6px;
+            margin-bottom: 60px;
+        }
+
+        .commands-section h2 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--borda);
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        th {
+            color: var(--verde-mint);
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #252525;
+            color: #ff79c6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        /* Galeria de Mídia (Prints do Sistema) */
+        .gallery-section h2 {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--borda);
+            padding-bottom: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+
+        .media-placeholder {
+            background-color: var(--bg-card);
+            border: 2px dashed var(--borda);
+            border-radius: 6px;
+            min-height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--texto-mutado);
+            font-style: italic;
+            overflow: hidden;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--bg-nav);
+            border-top: 1px solid var(--borda);
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--texto-mutado);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            th, td { padding: 8px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">OXY$ OS</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>OXY$ OS — Desempenho e <span>Auditoria</span></h1>
+        <p>Um sistema operacional minimalista construído do zero (Linux From Scratch purista) baseado no Kernel Linux 6.18. Desenvolvido especificamente para carregar 100% em memória RAM, entregando uma plataforma segura para auditoria e preservação de hardware antigo de 64 bits (x86_64).</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/linux-oxy-retro-cyber/OXY-LINUX-RETRO/releases" target="_blank" class="btn btn-primary">Baixar Imagem ISO</a>
+            <a href="https://github.com/linux-oxy-retro-cyber/OXY-LINUX-RETRO" target="_blank" class="btn btn-secondary">Código Fonte no GitHub</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="features-grid">
+            <div class="card">
+                <h3>Segurança & Amnésia</h3>
+                <p>Ao rodar inteiramente alocado na memória RAM, o sistema impede a persistência de arquivos maliciosos ou alterações no armazenamento local, gerando um ambiente limpo e seguro a cada inicialização.</p>
+            </div>
+            <div class="card">
+                <h3>Auditoria Otimizada</h3>
+                <p>Equipado com a base sólida e enxuta do BusyBox combinada ao gerenciador de pacotes 'KISS'. Ideal para o diagnóstico detalhado, análise estrutural e testes de integridade em barramentos de hardware antigos.</p>
+            </div>
+            <div class="card">
+                <h3>Preservação de Hardware</h3>
+                <p>Engenharia de software focada em extrair eficiência máxima e estender a vida útil de processadores e notebooks antigos de 64 bits que demonstram lentidão extrema em sistemas operacionais convencionais.</p>
+            </div>
+        </section>
+
+        <section class="commands-section">
+            <h2>Utilitários de Diagnóstico e Controle</h2>
+            <p style="color: var(--texto-mutado); margin-bottom: 20px;">Use estas ferramentas nativas essenciais para monitorar o comportamento do hardware em tempo real:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comando</th>
+                        <th>Função Técnico-Operacional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>free -m</code></td>
+                        <td>Monitora o consumo e a integridade de espaço físico na memória RAM.</td>
+                    </tr>
+                    <tr>
+                        <td><code>cat /proc/cpuinfo | grep "model name"</code></td>
+                        <td>Identifica as especificações técnicas exatas do processador ativo.</td>
+                    </tr>
+                    <tr>
+                        <td><code>kiss list</code></td>
+                        <td>Exibe e gerencia a lista de pacotes limpos instalados na arquitetura do sistema.</td>
+                    </tr>
+                    <tr>
+                        <td><code>busybox --list</code></td>
+                        <td>Lista todo o ecossistema de ferramentas nativas Unix embutidas na base do core.</td>
+                    </tr>
+                    <tr>
+                        <td><code>dmesg | tail -n 10</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Galeria do Sistema</h2>
+            <div class="gallery-grid">
+                <div class="media-placeholder">
+                    [ Print da Inicialização do Sistema - Espaço para Imagem ]
+                </div>
+                <div class="media-placeholder">
+                    [ Print do Gerenciamento de Pacotes / Hardware - Espaço para Imagem ]
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OXY$ OS Project. Desenvolvido em arquitetura independente LFS x86_64.</p>
+    </footer>
+
+</body>
+</html>
