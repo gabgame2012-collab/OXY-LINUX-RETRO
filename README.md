@@ -17,6 +17,6 @@ Se você curte a filosofia purista onde cada linha de código importa, venha dar
 ![OXY$ OS Screen](Captura%20de%20tela%20de%202026-05-29%2014-32-49.png)
 
 esse e um projeto independente feito por min mesmo com a ajuda do gemini para acelerar o projeto 
-esse sistema e de codigo aberto enato podem atualizar e repostar sem problemas 
+esse sistema e de codigo aberto entao podem atualizar e repostar sem problemas 
 ainda apresenta bugs. 
 pretendo atualizalo para o kernel 7.0 ou 7.1
