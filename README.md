@@ -19,12 +19,12 @@ Se você curte a filosofia purista onde cada linha de código importa, venha dar
 esse e um projeto independente feito por min mesmo com a ajuda do gemini para acelerar o projeto 
 esse sistema e de codigo aberto entao podem atualizar e repostar sem problemas 
 ainda apresenta bugs. 
-pretendo atualizalo para o kernel 7.0 ou 7.1
-##################################################################################################################################
-nova atualaizaçao 
+pretendo atualizalo para o kernel 7.0 ou 7.1...
+
+nova atualaizaçao 1.9
 recursos novos git e fastfetch
-##################################################################################################################################
-fastfetch
+
+screenshot do comando fastfetch
 ![OXY$ OS Screen](fastfetch.png)
-git
+screenshote do comando git --version
 ![OXY$ OS Screen](git.png)
