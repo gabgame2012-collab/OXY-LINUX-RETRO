@@ -20,3 +20,6 @@ esse e um projeto independente feito por min mesmo com a ajuda do gemini para ac
 esse sistema e de codigo aberto entao podem atualizar e repostar sem problemas 
 ainda apresenta bugs. 
 pretendo atualizalo para o kernel 7.0 ou 7.1
+##################################################################################################################################
+nova atualaizaçao 
+recursos novos git e fastfetch
