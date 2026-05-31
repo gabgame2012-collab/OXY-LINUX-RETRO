@@ -99,7 +99,7 @@ source ~/.bashrc
 
 ## 📄 Licença
 
-Este projeto é distribuído sob a licença MIT.
+Este projeto é distribuído sob a licença GPL3.
 
 ---
 
